@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es" dir="UTH-8">
+  <head>
+
+    <title>Ejercicio de Arreglos JavaScript </title>
+    <link rel="stylesheet" href="Untitled-1.css"/>
+
+  </head>
+  <body>
+    <div class="container py-2">
+    <p class="lead">Ingresa los datos</p>
+    <form >
+      <input id="nombre " type="text" placeholder="ingresa nombre de la pelicula" class="form-control my-2">
+      <input id="director" type="text" placeholder="ingresa el nombre del director" class="form-control my-2">
+      <input id="Genero" type="text" placeholder="ingresa el genero al cual pertence" class="form-control my-2">
+      <input id="Pais" type="text" placeholder="ingresa pais de origen" class="form-control my-2">
+      <input id="Año" type="mumber" placeholder="ingresa año de lanzamiento" class="form-control my-2">
+      <input id="Duracion" type="text" placeholder="ingresa duracion de la pelicula" class="form-control my-2">
+      <button id="boton" type="reset" onclick="capturar();"  class="btn bnt-success">agregar</button>
+    </form>
+    </div>
+    <div class="container">
+      <table class="table" id="tabla">
+        <thead class="thead-inverse">
+          <tr>
+            <th>nombre</th>
+            <th>director</th>
+            <th>Genero</th>
+            <th>Pais</th>
+            <th>Año</th>
+            <th>Duracion</th>
+          </tr>
+        </thead>
+      </table>
+
+</div>
+    <script >
+      function capturar(){
+        console.log("capturado");
+        function Pelicula(nombre, director, Genero, Pais, Año, Duracion){
+          this.nombre=nombre;
+          this.director=director;
+          this.Genero=Genero;
+          this.Pais=Pais;
+          this.Año=Año;
+          this.Duracion=Duracion;
+        }
+        var capturarnombre=document.getElementById("nombre").value;
+        console.log(capturarnombre);
+        var capturardirector=document.getElementById("director").value;
+        console.log(capturardirector);
+        var capturarGenero=document.getElementById("Genero").value;
+        console.log(capturarGenero);
+        var capturarPais=document.getElementById("Pais").value;
+        console.log(capturarPais);
+        var capturarAño=document.getElementById("Año").value;
+        console.log(capturarAño);
+        var capturarDuracion=document.getElementById("Duracion").value;
+        console.log(capturarDuracion);
+        sujeto= new Pelicula(capturarnombre, capturardirector, capturarGenero, capturarPais, capturarAño, capturarDuracion);
+        agregar();
+      }
+      var basedatos=[];
+      function agregar(){
+        basedatos.push(sujeto)
+        console.log(basedatos);
+        document.getElementById("tabla").innerHTML += '<tbody><td>'+sujeto.nombre+'</td><td>'+sujeto.director+'</td><td>'+sujeto.Genero+'</td><td>'+sujeto.Pais+'</td><td>'+sujeto.Año+'</td><td>'+sujeto.Duracion+'</td></tbody>';
+      };
+    </script>
+
+  </body>
+</html>
